@@ -30,7 +30,7 @@ CREATE TABLE Vecinos (
     litro DECIMAL(10, 2),
     propiedad_estanque VARCHAR(50),
     coordenadas VARCHAR(50),
-    UltimaFecha DATE,
+    ultimaFecha DATE,
     IDArea INT,
     FOREIGN KEY (IDArea) REFERENCES Area(ID)
 );

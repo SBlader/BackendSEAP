@@ -8,6 +8,7 @@ export class Vecino {
   fsh: number;
   activo: boolean;
   litros: number;
+  ultimaFecha: string;
   propiedad_estanque: string;
   coordenadas: string;
   FK_IDArea: number;
@@ -20,6 +21,7 @@ export class Vecino {
     this.fsh = vecino.fsh;
     this.activo = vecino.activo;
     this.litros = vecino.litros;
+    this.ultimaFecha = vecino.ultimaFecha;
     this.propiedad_estanque = vecino.propiedad_estanque;
     this.coordenadas = vecino.coordenadas;
     this.FK_IDArea = vecino.FK_IDArea;

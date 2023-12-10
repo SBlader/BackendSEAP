@@ -20,12 +20,6 @@ export const getAreas = async (req: Request, res:Response) => {
 export const getLastVersion = async(req: Request, res: Response) => {
   return res.json({"lastVersion": version});
 }
-
-export const getUltimaVisita = async(req: Request, res: Response) => {
-  const lastVisit = await db.query('SELECT * FROM UltimaVisita');
-  res.json(lastVisit);
-}
-
 export const getVecinos = async (req: Request, res: Response) => {
   const result = await db.query('SELECT * FROM Vecinos');
   res.json(result);
@@ -66,9 +60,7 @@ export const insertVisita = async (req: Request, res: Response) => {
       visita.clorado
     ]
   );
-  const lastIdQuery = await db.query('SELECT LAST_INSERT_ID()');
-  const lastId = lastIdQuery[0]['LAST_INSERT_ID()'];
-  await db.query('INSERT INTO UltimaVisita (IDVisita, RutVecino, FechaVisita) VALUES (?,?,?) ON DUPLICATE KEY UPDATE IDVisita = (?), FechaVisita = (?)',[lastId,visita.RutVecino,visita.fecha,lastId,visita.fecha]);
+  await db.query('UPDATE Vecinos SET ultimaFecha = (?) WHERE Rut LIKE (?)',[visita.fecha, visita.RutVecino]);
   version = version + 1;
   return res.json({ insert: "success"});
   }

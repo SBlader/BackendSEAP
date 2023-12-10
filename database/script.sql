@@ -30,6 +30,7 @@ CREATE TABLE Vecinos (
     litro DECIMAL(10, 2),
     propiedad_estanque VARCHAR(50),
     coordenadas VARCHAR(50),
+    UltimaFecha DATE,
     IDArea INT,
     FOREIGN KEY (IDArea) REFERENCES Area(ID)
 );
@@ -46,14 +47,6 @@ CREATE TABLE Visitas (
     estado VARCHAR(20),
     clorado BOOLEAN,
     FOREIGN KEY (RutResponsable) REFERENCES Responsable(Rut),
-    FOREIGN KEY (RutVecino) REFERENCES Vecinos(Rut)
-);
-
-CREATE TABLE UltimaVisita (
-    IDVisita INT,
-    RutVecino VARCHAR(20) PRIMARY KEY,
-    FechaVisita DATE,
-    FOREIGN KEY (IDVisita) REFERENCES Visitas(ID),
     FOREIGN KEY (RutVecino) REFERENCES Vecinos(Rut)
 );
 

@@ -13,6 +13,15 @@ export const getVisitas = async () => {
   });
 };
 
+export const getLastVersion = async(req: Request, res: Response) => {
+  return res.json({"lastVersion": version});
+}
+
+export const getUltimaVisita = async(req: Request, res: Response) => {
+  const lastVisit = await db.query('SELECT * FROM UltimaVisita');
+  res.json(lastVisit);
+}
+
 export const getVecinos = async (req: Request, res: Response) => {
   const result = await db.query('SELECT * FROM Vecinos');
   res.json(result);
@@ -53,7 +62,8 @@ export const insertVisita = async (req: Request, res: Response) => {
   );
   const lastIdQuery = await db.query('SELECT LAST_INSERT_ID()');
   const lastId = lastIdQuery[0]['LAST_INSERT_ID()'];
-  await db.query('INSERT INTO UltimaVisita (IDVisita, RutVecino) VALUES (?,?) ON DUPLICATE KEY UPDATE IDVisita = (?)',[lastId,visita.RutVecino, lastId]);
+  await db.query('INSERT INTO UltimaVisita (IDVisita, RutVecino, FechaVisita) VALUES (?,?,?) ON DUPLICATE KEY UPDATE (IDVisita, FechaVisita) = (?,?)',[lastId,visita.RutVecino,visita.fecha,lastId, visita.fecha]);
+  version++;
   return res.json({ insert: "success"});
   }
   catch{return res.json ({insert:"failure"})};

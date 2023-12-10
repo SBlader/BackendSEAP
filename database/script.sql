@@ -52,12 +52,15 @@ CREATE TABLE Visitas (
 CREATE TABLE UltimaVisita (
     IDVisita INT,
     RutVecino VARCHAR(20) PRIMARY KEY,
+    FechaVisita DATE,
     FOREIGN KEY (IDVisita) REFERENCES Visitas(ID),
-    FOREIGN KEY (RutVecino) REFERENCES Vecinos(Rut)
+    FOREIGN KEY (RutVecino) REFERENCES Vecinos(Rut),
+    FOREIGN KEY (FechaVisita) REFERENCES Visita(fecha)
 );
 
 CREATE TABLE Usuarios (
 	ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    rut VARCHAR(20),
 	name VARCHAR(20),
 	password VARCHAR(20)
 );

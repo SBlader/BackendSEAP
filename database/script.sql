@@ -54,8 +54,7 @@ CREATE TABLE UltimaVisita (
     RutVecino VARCHAR(20) PRIMARY KEY,
     FechaVisita DATE,
     FOREIGN KEY (IDVisita) REFERENCES Visitas(ID),
-    FOREIGN KEY (RutVecino) REFERENCES Vecinos(Rut),
-    FOREIGN KEY (FechaVisita) REFERENCES Visita(fecha)
+    FOREIGN KEY (RutVecino) REFERENCES Vecinos(Rut)
 );
 
 CREATE TABLE Usuarios (

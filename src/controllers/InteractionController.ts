@@ -32,7 +32,7 @@ export const login = async (req: Request, res: Response) => {
   let encontrado = false;
   console.log(req.body);
   users.forEach((usuario:any) => {
-    if(usuario.name == req.body.u && usuario.password == req.body.p){
+    if(usuario.rut == req.body.u && usuario.password == req.body.p){
       encontrado = true;
     };
   });
@@ -62,8 +62,8 @@ export const insertVisita = async (req: Request, res: Response) => {
   );
   const lastIdQuery = await db.query('SELECT LAST_INSERT_ID()');
   const lastId = lastIdQuery[0]['LAST_INSERT_ID()'];
-  await db.query('INSERT INTO UltimaVisita (IDVisita, RutVecino, FechaVisita) VALUES (?,?,?) ON DUPLICATE KEY UPDATE (IDVisita, FechaVisita) = (?,?)',[lastId,visita.RutVecino,visita.fecha,lastId, visita.fecha]);
-  version++;
+  await db.query('INSERT INTO UltimaVisita (IDVisita, RutVecino, FechaVisita) VALUES (?,?,?) ON DUPLICATE KEY UPDATE IDVisita = (?), FechaVisita = (?)',[lastId,visita.RutVecino,visita.fecha,lastId,visita.fecha]);
+  version = version + 1;
   return res.json({ insert: "success"});
   }
   catch{return res.json ({insert:"failure"})};

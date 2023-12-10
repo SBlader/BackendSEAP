@@ -13,6 +13,10 @@ export const getVisitas = async () => {
   });
 };
 
+export const getAreas = async (req: Request, res:Response) => {
+  const result = await db.query('SELECT * FROM Area');
+  return res.json(result);
+}
 export const getLastVersion = async(req: Request, res: Response) => {
   return res.json({"lastVersion": version});
 }

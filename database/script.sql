@@ -89,4 +89,4 @@ VALUES
 ('11111111-1', '33333333-3', 50.0, 'Visita de prueba 1', 'FOLIO001', '2023-03-01', 'Completada', 1),
 ('22222222-2', '44444444-4', 30.5, 'Visita de prueba 2', 'FOLIO002', '2023-03-02', 'Pendiente', 0);
 
-INSERT INTO Usuarios (name, password) VALUES ('admin','admin');
+INSERT INTO Usuarios (rut,name, password) VALUES ('11.962.433-9','Luis','password');

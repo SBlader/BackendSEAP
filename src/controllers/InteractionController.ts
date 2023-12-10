@@ -30,14 +30,16 @@ export const getVecinos = async (req: Request, res: Response) => {
 export const login = async (req: Request, res: Response) => {
   const users = await db.query('SELECT * FROM Usuarios');
   let encontrado = false;
+  let name;
   console.log(req.body);
   users.forEach((usuario:any) => {
     if(usuario.rut == req.body.u && usuario.password == req.body.p){
       encontrado = true;
+      name=usuario.name;
     };
   });
   if (encontrado){
-    res.json({"success": true});
+    res.json({"success": true,"name":name});
   }else{
     res.json({"success":false})
   }

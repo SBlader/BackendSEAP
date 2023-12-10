@@ -49,6 +49,13 @@ CREATE TABLE Visitas (
     FOREIGN KEY (RutVecino) REFERENCES Vecinos(Rut)
 );
 
+CREATE TABLE UltimaVisita (
+    IDVisita INT,
+    RutVecino VARCHAR(20) PRIMARY KEY,
+    FOREIGN KEY (IDVisita) REFERENCES Visitas(ID),
+    FOREIGN KEY (RutVecino) REFERENCES Vecinos(Rut)
+);
+
 CREATE TABLE Usuarios (
 	ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(20),

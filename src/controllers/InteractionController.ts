@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import {db} from '../db'
  
 let listVisitas: Visita[] = [];
+let version = 0;
 
 export const getVisitas = async () => {
   const result = await db.query('SELECT * FROM Visitas');
@@ -37,7 +38,7 @@ export const insertVisita = async (req: Request, res: Response) => {
   console.log(req.body);
   listVisitas.push(visita);
   try {
-  const result = await db.query(
+  await db.query(
     'INSERT INTO Visitas (RutResponsable, RutVecino, litros, comentario, folio, fecha, estado, clorado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
     [
       visita.RutResponsable,
@@ -50,6 +51,9 @@ export const insertVisita = async (req: Request, res: Response) => {
       visita.clorado
     ]
   );
+  const lastIdQuery = await db.query('SELECT LAST_INSERT_ID()');
+  const lastId = lastIdQuery[0]['LAST_INSERT_ID()'];
+  await db.query('INSERT INTO UltimaVisita (IDVisita, RutVecino) VALUES (?,?) ON DUPLICATE KEY UPDATE IDVisita = (?)',[lastId,visita.RutVecino, lastId]);
   return res.json({ insert: "success"});
   }
   catch{return res.json ({insert:"failure"})};

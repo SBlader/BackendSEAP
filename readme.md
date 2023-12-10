@@ -8,7 +8,7 @@ npm install --save-dev ts-node-dev //Permite que la api se recargue al modificar
 ## ENDPOINTS
 
 1. GET `localhost:3000/`: Entrega todos los vecinos
-2. GET `localhost:3000/login`: dado un usuario y contraseña (ver en apartado estructuras) devuelve si el inicio de sesión fue existoso
+2. POST `localhost:3000/login`: dado un usuario y contraseña (ver en apartado estructuras) devuelve si el inicio de sesión fue existoso
 3. POST `localhost:3000/`: Sube una visita a la base de datos (ver en apartado estructuras);
 
 ## ESTRUCTURAS

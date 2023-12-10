@@ -21,7 +21,7 @@ CREATE TABLE Area (
 -- Crear la tabla Vecinos
 CREATE TABLE Vecinos (
     Rut VARCHAR(20) PRIMARY KEY,
-    grupo_familiar VARCHAR(50),
+    grupo_familiar INT,
     referencia VARCHAR(100),
     nombre VARCHAR(50),
     telefono VARCHAR(15),
@@ -73,8 +73,8 @@ VALUES
 -- Insertar datos en la tabla Vecinos
 INSERT INTO Vecinos (Rut, grupo_familiar, referencia, nombre, telefono, fsh, activo, litro, propiedad_estanque, coordenadas, IDArea)
 VALUES 
-('33333333-3', 'Familia Vecino 1', 'Referencia 1', 'Vecino 1', '111222333', 60, 1, 100.5, 'Propiedad 1', '10.1234, -20.5678', 1),
-('44444444-4', 'Familia Vecino 2', 'Referencia 2', 'Vecino 2', '444555666', 50, 0, 75.2, 'Propiedad 2', '15.4321, -25.6789', 2);
+('33333333-3', 3, 'Referencia 1', 'Vecino 1', '111222333', 60, 1, 100.5, 'Propiedad 1', '10.1234, -20.5678', 1),
+('44444444-4', 4, 'Referencia 2', 'Vecino 2', '444555666', 50, 0, 75.2, 'Propiedad 2', '15.4321, -25.6789', 2);
 
 -- Insertar datos en la tabla Visitas
 INSERT INTO Visitas (RutResponsable, RutVecino, litros, comentario, folio, fecha, estado, clorado)

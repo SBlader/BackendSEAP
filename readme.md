@@ -36,3 +36,8 @@ VISITA:
 ## EJECUCIÓN
 
 Para levantar la api deberá ejecutar "npm run dev"
+
+## PRECAUCION
+
+El script de creacion de la base de datos sobreescribira la tabla EmergenciasHidricas si ya existe,
+de otra manera la creará

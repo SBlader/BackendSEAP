@@ -73,10 +73,13 @@ VALUES
 (2, 'Área B');
 
 -- Insertar datos en la tabla Vecinos
-INSERT INTO Vecinos (Rut, grupo_familiar, referencia, nombre, telefono, fsh, activo, litro, propiedad_estanque, coordenadas, IDArea)
+INSERT INTO Vecinos (Rut, grupo_familiar, referencia, nombre, telefono, fsh, activo, litro, propiedad_estanque, coordenadas, UltimaFecha,IDArea)
 VALUES 
-('33333333-3', 3, 'Referencia 1', 'Vecino 1', '111222333', 60, 1, 100.5, 'Propiedad 1', '10.1234, -20.5678', 1),
-('44444444-4', 4, 'Referencia 2', 'Vecino 2', '444555666', 50, 0, 75.2, 'Propiedad 2', '15.4321, -25.6789', 2);
+('33333333-3', 3, 'Referencia 1', 'Adolfo Contreras', '111222333', 60, 1, 100.5, 'Propiedad 1', '10.1234, -20.5678',"2023-01-11", 1),
+('44444444-4', 4, 'Referencia 2', 'Camila Lara', '444555666', 50, 0, 75.2, 'Propiedad 2', '15.4321, -25.6789',"2023-11-15", 2),
+('55555555-5', 4, 'Referencia 3', 'Sergio Olivares', '844585666', 60, 0, 75.2, 'Propiedad 2', '15.4321, -25.6789',"2023-12-23", 2),
+('66666666-6', 4, 'Referencia 4', 'Sebastian Reyes', '402355666', 60, 0, 75.2, 'Propiedad 2', '15.4321, -25.6789',"2023-12-28", 2),
+('77777777-7', 4, 'Referencia 5', 'Sandra Carmona', '544905666', 50, 0, 75.2, 'Propiedad 2', '15.4321, -25.6789',"2023-03-12", 2);
 
 -- Insertar datos en la tabla Visitas
 INSERT INTO Visitas (RutResponsable, RutVecino, litros, comentario, folio, fecha, estado, clorado)

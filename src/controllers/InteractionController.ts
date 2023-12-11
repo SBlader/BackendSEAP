@@ -43,10 +43,10 @@ export const login = async (req: Request, res: Response) => {
   }
 };
 export const insertVisita = async (req: Request, res: Response) => {
-  const visita = new Visita(req.body);
+  listVisitas = req.body;
   console.log(req.body);
-  listVisitas.push(visita);
   try {
+  listVisitas.forEach(async(visita:Visita) =>{
   await db.query(
     'INSERT INTO Visitas (RutResponsable, RutVecino, litros, comentario, folio, fecha, estado, clorado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
     [
@@ -61,10 +61,9 @@ export const insertVisita = async (req: Request, res: Response) => {
     ]
   );
   await db.query('UPDATE Vecinos SET ultimaFecha = (?) WHERE Rut LIKE (?)',[visita.fecha, visita.RutVecino]);
+  });
   version = version + 1;
   return res.json({ insert: "success"});
   }
   catch{return res.json ({insert:"failure"})};
-
-  
 };

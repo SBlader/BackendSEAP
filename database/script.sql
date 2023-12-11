@@ -30,7 +30,7 @@ CREATE TABLE Vecinos (
     litro DECIMAL(10, 2),
     propiedad_estanque VARCHAR(50),
     coordenadas VARCHAR(50),
-    ultimaFecha DATE,
+    UltimaFecha DATE,
     IDArea INT,
     FOREIGN KEY (IDArea) REFERENCES Area(ID)
 );
@@ -40,12 +40,12 @@ CREATE TABLE Visitas (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     RutResponsable VARCHAR(20),
     RutVecino VARCHAR(20),
-    litros DECIMAL(10, 2),
+    litros DECIMAL(10,2), 
     comentario VARCHAR(255),
     folio VARCHAR(20),
     fecha DATE,
     estado VARCHAR(20),
-    clorado BOOLEAN,
+    clorado DECIMAL(10,2),
     FOREIGN KEY (RutResponsable) REFERENCES Responsable(Rut),
     FOREIGN KEY (RutVecino) REFERENCES Vecinos(Rut)
 );
@@ -62,7 +62,9 @@ CREATE TABLE Usuarios (
 INSERT INTO Responsable (Rut, correo, nombre, contrato, telefono) 
 VALUES 
 ('11111111-1', 'responsable1@example.com', 'Juan Perez', 1, '123456789'),
-('22222222-2', 'responsable2@example.com', 'Maria Rodriguez', 2, '987654321');
+('22222222-2', 'responsable2@example.com', 'Maria Rodriguez', 2, '987654321'),
+('11.962.433-9','responsable3@exaple.com','Luis',3,'111111111');
+
 
 -- Insertar datos en la tabla Area
 INSERT INTO Area (ID, nombre)

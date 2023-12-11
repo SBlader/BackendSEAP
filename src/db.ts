@@ -7,7 +7,7 @@ export const connectDB = async () => {
     db = await createConnection({
       host: 'localhost',
       user: 'root',
-      password: 'root',
+      password: 'Mm00665432@',
       database: 'EmergenciasHidricas'
     });
 

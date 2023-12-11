@@ -12,6 +12,8 @@ npm install --save-dev ts-node-dev //Permite que la api se recargue al modificar
 3. POST `localhost:3000/`: Sube una lista de visitas a la base de datos (ver en apartado estructuras);
 4. GET `localhost:3000/lastVersion`: Retorna un entero que corresponde a la versión de la base de datos desde que se inicio la api
 5. GET `localhost:3000/area`: Retonra una lista de jsons con todas las areas almacenadas
+
+
 ## ESTRUCTURAS
 
 LOGIN: 
@@ -35,7 +37,8 @@ VISITA:
 
 ## EJECUCIÓN
 
-Para levantar la api deberá ejecutar "npm run dev"
+Se debe indicar un usuario y contraseña que permita acceder a la tabla en el archivo src/db.ts
+Para levantar la api deberá ejecutar "npm run dev" desde la carpeta BackendSEAP
 
 ## PRECAUCION
 

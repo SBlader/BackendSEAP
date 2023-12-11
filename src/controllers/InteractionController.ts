@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import {db} from '../db'
  
 let listVisitas: Visita[] = [];
-let version = 0;
+let version = 1;
 
 export const getVisitas = async () => {
   const result = await db.query('SELECT * FROM Visitas');
